@@ -1,0 +1,127 @@
+A. PS, PE, MO, LI
+B.
+C. RT, AO, KO, NI, ER, AY
+D. EA, KS, OZ, XR
+E. CW, MI, UH, DA. FY
+
+
+Name, Intro, Suspects, Arhtropods, Platyhelminthes, Mollusca, Porifera, Who Found The Body
+
+Arthropods - Dusting For Prints
+Platyhelminthes - A strand of hair
+Mollusca - Crackerbarrel
+Porifera - His password
+Nematoda - blood type A becaus
+
+I am not making Declan blood type Z because I don't feel like doing that.
+
+Arthropods, Platyhelminthes, CNIDARIA, Porifera, Nematoda, MOLLUSCA, ECHINODERMATA, ANNELIDA
+
+background-image: url(https://farm4.staticflickr.com/3169/2981528249_7158e82fd8_o_d.jpg);
+
+Home Screen:
+<span style="position: absolute; left: 93%; color: white;">1:11</span>
+
+                    <br>
+
+                    <div apps style="display: grid; grid-template-columns: auto auto auto auto; justify-items: center; row-gap: 1.3vw;">
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app="notes"><span>Notes</span></div>
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app outofservice onclick="outOS()"></div>
+
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app="grades"><span>GTracker</span></div>
+                        <div app outofservice onclick="outOS()"></div>
+
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app outofservice onclick="outOS()"></div>
+
+                        <div app="SmartHome"><span>Smart Home</span></div>
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app outofservice onclick="outOS()"></div>
+
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app outofservice onclick="outOS()"></div>
+
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app outofservice onclick="outOS()"></div>
+                        <div app outofservice onclick="outOS()"></div>
+
+                        
+                    </div>
+
+Lock Screen:
+
+<div id="screen">
+                    
+                    <div style="display: grid; grid-template-columns: auto; justify-content: center;">
+                        <br>
+                        <br>
+                        <span time>01</span>
+                        <span time>11</span>
+                        <br>
+                        <br>
+                        <span style="text-align: center; font-size: xx-large;">Enter Password</span>
+                    </div>
+                    <div style="display: grid; grid-template-columns: auto; justify-content: start; justify-items:center;">
+                        <div>
+                            <input style="width: 98.3%; position: absolute; font-size: x-large;" pass>
+                        </div>
+                    </div>
+                    
+
+                    <div>
+
+                    </div>
+                    
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div style="display: grid; grid-template-columns: auto; justify-content: center;">
+                    <button style="background-color: rgb(158, 206, 209); width: 2.3vw; height: 2.3vw; border-radius: 2.3vw; font-size: x-large; display: none;" go onclick="edGO()">^</button>
+                </div>
+                <div style="width: 100%; height: 3.3vw; position: relative;"></div>
+
+Notes:
+<div style="width: 100%; height: 4.3vw; position: relative; background-color: rgb(255, 230, 0); border-radius: 1.3vw; text-align: center; font-size: xx-large; border-color: black; border-style: solid; border-width: 0.3vw; margin: -0.3vw;">
+                        Notes
+                    </div>
+                    <br>
+                    <div notes style="display: grid; grid-template-columns: auto auto auto auto; justify-content: left; align-items: center; column-gap: 2.3vw;">
+                        <div note="1" onclick="note(1)">
+                            <p style="position:absolute; font-size: 0.9vw;">Name: Decl...</p>
+                            <span>Untitled Note</span>
+                        </div>
+                        <div note="2" onclick="note(0)">
+                            <p style="position:absolute; font-size: 0.9vw;">I will fi...</p>
+                            <span><i style="color: lightskyblue;">(shared file)</i> life_threat</span>
+                        </div>
+                        <div addNote onclick="note(2)">
+                            +
+                        </div>
+                    </div>
+                    <br><br><br><br>
+                    <div style="position: relative; bottom: 0vw; background-color: lightgray; width: 100%; height: 29vw;" insNote>
+                        <span style="color: red; float: right; font-size: xx-large; background-color: brown;" onclick="this.parentElement.style.display = 'none';">x</span>
+                        <br>
+                        <i style="color: lightskyblue;">(shared file)</i>
+                        <textarea style="width: 95%; height: 80%; resize: none; background-color: rgb(253, 255, 222); font-size: xx-large;">I will find you, and I will kill you.</textarea>
+                    </div>
+
+Declan likes: 
+water, football, karate, n
+
+We will not do dodgeball, or four square, or tennis
+
+
+Nematoda will be next to dodgeball

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="main.css" rel="stylesheet">
+    <script src="suspectr.js"></script>
+</head>
+    <body>
+        <div list>
+            <ul>
+                <li>Casey</li>
+                <li>Penn</li>
+                <li>Takira</li>
+                <li>Mr. McCormick</li>
+            </ul>
+            <ul>
+                <li>Mrs. Church</li>
+                <li>Mrs. Leasure</li>
+                <li>Ms. Strickland</li>
+                <li>Keely</li>
+            </ul>
+        </div>
+        <style>
+            [list]{
+                background-color: grey;
+                border-color: black;
+                border-style:double;
+                border-width: 0.3vw;
+                position: fixed;
+                height: 100%;
+                width: 80%;
+                left: 10%;
+                top:0;
+                display: grid;
+                grid-template-columns: auto auto;
+                user-select:text;
+            }
+            [list] ul li::selection{
+                background-color: blueviolet;
+            }
+            ul li{
+                font-size: 3.3vw;
+            }
+            #ex{
+                height: 20.3vw;
+                bottom: -30.3vw;
+                z-index: 1;
+            }
+        </style>
+        <script>
+            window.addEventListener("load", function(){
+                document.querySelector("[this]").style.display = "block";
+                document.getElementById("ex").style.bottom = "0vw";
+                document.getElementById("ex").style.fontSize = "3vw";
+                var nOSL = false;
+                for (let index = 0; index < suspects.length; index++) {
+                    if(suspects[index].name==localStorage.getItem("pname").toString()){
+                        nOSL=true;
+                    }
+                }
+                if(nOSL){
+                    document.getElementById("ex").innerHTML = "<span>This is the list of suspects. Wait, you're on the list! I'm watching you. Anyways, do you have any questions ON THE SUSPECTS.<button opt onclick='quest(true)'>Yes</button><button opt onclick='quest(false)'>No</button> </span>";
+                } else {
+                    document.getElementById("ex").style.fontSize = "2.3vw";
+                    document.getElementById("ex").innerHTML = "<span>This is the list of suspects. Do you have ANY questions on why some of the suspects are... suspects?<button opt onclick='quest(true)'>Yes</button><button opt onclick='quest(false)'>No</button> </span>";
+                }
+                
+                
+            })
+            function quest(yon){
+                if(yon){
+                    document.getElementById("ex").innerHTML = "<span>What.";
+                    for (let index = 0; index < suspects.length; index++) {
+                        document.getElementById("ex").innerHTML += `<button opt name="${suspects[index].name}" onclick="reason('Because ' + '${suspects[index].reason}' + '.')">Why is ${suspects[index].name} a suspect</button>`;
+                        document.getElementById("ex").style.height = "49.3vw";
+                    }
+                } else {
+                    document.getElementById("ex").style.height = "29.3vw";
+                    document.getElementById("ex").innerHTML = "<span>Okay, I didn't say this before, but I hope you have studied invertebrates before, you are really going to need it for this. <br> Are you ready for the first set of clues? <button opt onclick='window.location.href = `visitDeclan.html`;'>Yes</button><button opt onclick='window.location.href = `visitDeclan.html`;'>No</button></span>"
+                }
+            }
+            function reason(sname){
+                document.getElementById("ex").innerHTML = `<span>${sname}<br><br> Got any other questions on the suspects?<button opt onclick="quest(true)">Yes</button><button opt onclick="quest(false)">No</button></span>`;
+            }
+        </script>
+        <div id="ex">
+            
+        </div>
+        <img src="https://openclipart.org/image/2400px/svg_to_png/227980/8-Bit-Character-1.png" style="position: fixed; bottom: 0; left: 2.3vw; width: 6.3vw; z-index: 2; display: none;" this>
+    </body>
+</html>

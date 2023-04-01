@@ -1,0 +1,92 @@
+@font-face {
+    font-family: main;
+    src: url(fonts/Graph-35-pix.ttf);
+}
+html{
+    font-family: main;
+    user-select: none;
+}
+body{
+    background-image: url("imgs/brickb.jpg");
+    background-size: auto;
+}
+input{
+    text-align: center;
+    position: fixed;
+    top: 40%;
+    width: 23.3vw;
+    height: 7.3vw;
+    font-size: 6.3vw;
+    background-color: rgb(53, 53, 53);
+    border-width: 1.3vw;
+    border-color: black;
+    border-style: solid;
+    border-radius: 1.3vw;
+    color: black;
+    font-family: main;
+}
+input:out-of-range{
+    background-color: red;
+}
+[g]{
+    display: grid;
+    place-items: center;
+    font-family: main;
+}
+#ex{
+    position: fixed;
+    background-color: grey;
+    border-width: 0.3vw;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    font-size: 1.3vw;
+    width: 100%;
+    height: 13.3vw;
+    left: 0;
+    bottom:-16.3vw;
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s;
+    font-family: main;
+    z-index: 1;
+    user-select: none;
+}
+[did]{
+    background-color: grey;
+    border-width: 0.3vw;
+    border-color: black;
+    border-style: solid;
+    width: 9.3vw;
+    height: 3vw;
+    position: fixed;
+    top: 54.3%;
+    font-size : 60%;
+    font-family: main;
+}
+[opt]{
+    background-color: grey;
+    border-width: 0.3vw;
+    border-color: black;
+    border-style: solid;
+    width: auto;
+    height: 4.3vw;
+    margin-left: 0px;
+    font-size: xx-large;
+    font-family: main;
+}
+[opt]:hover{
+    background-color: gainsboro;
+}
+[optl]{
+    background-color: grey;
+    border-width: 0.3vw;
+    border-color: black;
+    border-style: solid;
+    width: auto;
+    height: 4.3vw;
+    margin-left: 0px;
+    font-size: xx-large;
+    font-family: main;
+}
+[optl]:hover{
+    background-color: gainsboro;
+}

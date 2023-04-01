@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+    <body>
+        <h1 style="color:red; font-size: 3vw; text-align: center;">What Happened?</h1>
+        <div story>
+            <div storyin>
+                <!--<p style="color: white; font-size: x-large; text-align: center;">Declan came rushing into the hospital with a <span at>broken</span> leg.</p>-->
+                <p style="color: white; font-size: x-large; text-align: center;">The doctors rushed to him as fast as they could. This was a <span at>serious</span> matter that needed to be taken care of quickly.</p>
+            </div>
+                <div style="display: grid; place-items: center;grid-template-columns: auto auto;" nextback>
+                    <div back onclick="changeStory(false)">
+                        <
+                    </div>
+                    <div next onclick="changeStory(true)">
+                        >
+                    </div>
+            </div>
+            <div id="ex">
+    
+            </div>
+            <img src="https://openclipart.org/image/2400px/svg_to_png/227980/8-Bit-Character-1.png" style="position: fixed; bottom: 0; left: 2.3vw; width: 6.3vw; z-index: 2; display: none;" this>
+        </div>
+        <style>
+            [story]{
+                width: 100%;
+                height: 73.3%;
+                position: fixed;
+                top: 13.43%;
+                background-color: rgba(0, 0, 0, 0.507);
+            }
+            [next], [back]{
+                width: 6.3vw;
+                height: 6.3vw;
+                border-width: 0.3vw;
+                border-color: black;
+                border-style: solid;
+                border-radius: 1.3vw;
+                background-color: rgb(114, 114, 114);
+                text-align: center;
+                font-size: 5.3vw;
+                display: inline;
+                transition: cubic-bezier(0.645, 0.045, 0.355, 1) 0.13s;
+            }
+            [next]:hover, [back]:hover{
+                background-color: rgb(223, 223, 223);
+            }
+            /*#ex span{
+              position: absolute;
+              top: 9vw;
+              z-index: 5;
+            }*/
+            #ex{
+                height: 20.3vw;
+                bottom: -30.3vw;
+            }
+        </style>
+        <script>
+            var pname = localStorage.getItem("pname");
+            var i = 0;
+            var col = ["red", "orange", "yellow", "purple", "blue"];
+            var story = ['<p style="color: white; font-size: x-large; text-align: center;">One day Declan came rushing into the hospital with a <span at>hook</span> wound.</p>', `<p style="color: white; font-size: x-large; text-align: center;">The doctors rushed to him as fast as they could. This was a <span at>serious</span> matter that needed to be taken care of quickly.</p>`,  `<p style="color: white; font-size: x-large; text-align: center;">By the time the doctors had got to him, it was <span at>too late</span>.</p>`, '<p style="color: white; font-size: x-large; text-align: center;">Declan layed there, pale, and unresponsive. Declan, was <span at>dead</span>.</p>']
+            window.addEventListener("load", function(){
+                if(i==0){
+                    setInterval(function(){
+                document.querySelector("[at]").style.color = col[Math.floor(Math.random() * (col.length + 1))];
+                console.log(Math.floor(Math.random() * (col.length + 1)))
+                }, 50)
+                }
+            })
+            function changeStory(pos){
+                if(pos){
+                    i++
+                } else {
+                    i-=1
+                }
+                document.querySelector("[storyin]").innerHTML = story[i]
+                if(i==3){
+                    setTimeout(function(){
+                        if(i==3){
+                            document.querySelector("[this]").style.display = "block";
+                            document.getElementById("ex").style.bottom = "0vw";
+                            document.getElementById("ex").style.fontSize = "3vw"
+                            document.getElementById("ex").innerHTML = "<span>Creepy, right?<button opt onclick='goDownS();'>Yeah</button><button opt onclick='goDownS();'>No</button><button opt onclick='goDownS();'>Not really</button></span>"
+                        }
+                    }, 2000)
+                }
+            }
+
+            window.addEventListener("load", function(){
+                setInterval(function(){
+                    if(i==0){
+                        document.querySelector("[back]").style.display = "none";
+                        document.querySelector("[nextback]").style.gridTemplateColumns = "auto";
+                    } else {
+                        document.querySelector("[back]").style.display = "block";
+                        document.querySelector("[nextback]").style.gridTemplateColumns = "auto auto";
+                    }
+                    if(i==3){
+                        document.querySelector("[next]").style.display = "none";
+                        document.querySelector("[nextback]").style.gridTemplateColumns = "auto";
+                    } else {
+                        document.querySelector("[next").style.display = "block";
+                        document.querySelector("[nextback]").style.gridTemplateColumns = "auto auto";
+                    }
+
+                })
+            })
+            window.addEventListener("load", function(){
+                if(i==0){
+                    setTimeout(function(){
+                        if(i==0){
+                            document.querySelector("[this]").style.display = "block";
+                            document.getElementById("ex").style.bottom = "0vw";
+                            document.getElementById("ex").style.fontSize = "3vw"
+                            document.getElementById("ex").innerHTML = "<span>Hurry up and move to the next slide, " + localStorage.getItem("pname").toString() + ".<button opt onclick='goDown();'>Okay</button></span>"
+                        }
+                    }, 1000)
+                }
+
+                
+                document.querySelector("[storyin]").innerHTML = story[0]
+            })
+            function goDown(){
+                document.getElementById("ex").style.bottom = "-30.3vw";
+                document.querySelector("[this]").style.display = "none";
+            }
+            function goDownS(){
+                document.getElementById("ex").style.bottom = "-30.3vw";
+                document.querySelector("[this]").style.display = "none";
+                setTimeout(function(){
+                    document.querySelector("[this]").style.display = "block";
+                            document.getElementById("ex").style.bottom = "0vw";
+                            document.getElementById("ex").style.fontSize = "3vw"
+                            document.getElementById("ex").innerHTML = "<span>I have a list of suspects for who I think did the murder, would you like to see them?<button opt onclick='window.location.href = `list.html`'>Yes</button></span><button opt onclick='goDownN();'>No</button></span>"
+                },1000)
+            }
+            function goDownY(){
+                            document.querySelector("[this]").style.display = "block";
+                            document.getElementById("ex").style.bottom = "0vw";
+                            document.getElementById("ex").style.fontSize = "3vw"
+                            document.getElementById("ex").innerHTML = "<span>Okay, I'll show you.</span>";
+                            setTimeout(function(){
+                                window.location.href = "list.html";
+                            }, 1500)
+            }
+            function goDownN(){
+                            document.querySelector("[this]").style.display = "block";
+                            document.getElementById("ex").style.bottom = "0vw";
+                            document.getElementById("ex").style.fontSize = "3vw"
+                            document.getElementById("ex").innerHTML = "<span>Well, I don't really care because I'm gonna show you anyways. (:</span>";
+                            setTimeout(function(){
+                                window.location.href = "list.html";
+                            }, 1500)
+            }
+            window.addEventListener("load", function(){
+                    setTimeout(function(){
+                        if(i!=3){
+                            document.querySelector("[this]").style.display = "block";
+                            document.getElementById("ex").style.bottom = "0vw";
+                            document.getElementById("ex").style.fontSize = "3vw"
+                            document.getElementById("ex").innerHTML = "<span>Okay actually, it's been half a minute now, the clock is ticking. Finish reading the story. <button opt onclick='goDown();'>Okay</button></span>"
+                        }
+                            
+                    }, 30000)
+                    setTimeout(function(){
+                        if(i!=3){
+                            document.querySelector("[this]").style.display = "block";
+                            document.getElementById("ex").style.bottom = "0vw";
+                            document.getElementById("ex").style.fontSize = "3vw"
+                            document.getElementById("ex").innerHTML = `<span>${pname.toUpperCase()}, we don't have all day! It's been a minute now.<button opt onclick='goDown();'>Okay</button></span>`
+                        }
+                    }, 60000)
+                    
+                document.querySelector("[storyin]").innerHTML = story[0]
+            })
+        </script>
+    </body>
+</html>

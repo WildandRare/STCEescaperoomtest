@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="main.css" rel="stylesheet">
+        <link href="apps.css" rel="stylesheet">
+        <script src="notes.js"></script>
+        <script src="pages.js"></script>
+    </head>
+    <body>
+        <div id="ex">
+            
+        </div>
+        <button opt style="position: fixed; bottom: 0; right: 0; height: 29.3vw; font-size: x-large; width: 30%;" onclick="optionGSP()">
+            I'm done looking through the phone.
+            <br>
+            <span style="font-size: large;">(Click this button if you are done looking through the phone)</span>
+        </button>
+        <div style="position: relative; bottom: -9.3vw; text-align: center; display: none;" id="has_phone">
+            <span style="font-size: xx-large; color: rgb(160, 160, 255); text-align: center; font-weight: 900; text-align: center;" id="phone_status">SEAN HAS THE PHONE</span>
+        </div>
+        <div giveS style="display: grid; grid-template-columns: auto auto;">
+                
+        </div>
+            <div phone>
+                <div phone-top-bevel>
+                    
+                </div>
+
+                <div id="screen">
+                    
+
+                    
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <div inGIVEsP>
+                    
+                </div>
+                <div style="display: grid; grid-template-columns: auto; justify-content: center;">
+                    <button style="background-color: rgb(158, 206, 209); width: 2.3vw; height: 2.3vw; border-radius: 2.3vw; font-size: x-large; display: none;" go onclick="edGO()">^</button>
+                    </div>
+                <div style="width: 100%; height: 3.3vw; position: relative;"></div>
+                <div phone-bottom-bevel style="display: grid; grid-template-columns: auto; justify-content: center;">
+                    <div homeButton onclick="changePage('fhome', 'cont')" style="display: none;"></div>
+                </div>
+                
+            </div>
+            <div block>
+
+            </div>
+        <style>
+            [grades]{
+                width: 100%;
+                height: 40.3vw;
+                background-color: darkgreen;
+                left: 0vw;
+                bottom: -11.3vw;
+                display: grid;
+                position: relative;
+                grid-template-columns: auto;
+                justify-content: center;
+                row-gap: 0.3vw;
+            }
+            [grade]{
+                width: 29.43vw;
+                height: 4.3vw;
+                background-color: rgb(0, 160, 0);
+                font-size: x-large;
+                font-weight: 900;
+                border-radius: 0.63vw;
+            }
+
+            [block]{
+                width: 100%;
+                height: 100%; 
+                background-color: rgba(129, 129, 129, 0.466);
+                display: none;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+            }
+            [dev]{
+                width: 100%;
+                height: 4.3vw;
+                background-color: rgb(83, 121, 108);
+                border-radius: 0.3vw;
+                margin: 0.3vw;
+                font-size: large;
+            }
+            [dev] span span {
+                font-style: italic;
+            }
+
+            [homeButton] {
+                width: 2.3vw;
+                height: 2.3vw;
+                background-color: rgb(199, 199, 199);
+                border-radius: 2.3vw;
+                position: relative;
+                bottom: 3.3vw;
+            }
+
+            @font-face {
+                font-family: UIp;
+                src: url(ArchivoNarrow-Regular.ttf);
+            }
+            [phone]{
+                width: 35%;
+                height: 90%;
+                background-color: rgb(185, 184, 171);
+                position: fixed;
+                left: 32%;
+                top: 5%;
+                border-radius: 2.3vw;
+                border-width: 0.43vw;
+                border-style: solid;
+                border-color: rgb(37, 37, 37);
+                background-size: auto 100%;
+                box-shadow: -1.9vw 1.9vw 0.63vw rgba(0, 0, 0, 0.445);
+            }
+            [phone-top-bevel]{
+                width: 100%;
+                height: 1.3vw;
+                position: relative;
+                top:0;
+                left:0;
+                background-color: rgb(58, 58, 58);
+                border-top-left-radius: 2.3vw;
+                border-top-right-radius: 2.3vw;
+            }
+            [phone-bottom-bevel]{
+                width: 100%;
+                height: 1.3vw;
+                position: absolute;
+                bottom:0;
+                left:0;
+                background-color: rgb(58, 58, 58);
+                border-bottom-left-radius: 2.3vw;
+                border-bottom-right-radius: 2.3vw;
+            }
+            input{
+                border-radius: 0.3vw;
+                height: 4.3vw;
+                background-color: rgb(211, 211, 211);
+                border-width: 0.3vw;
+                user-select: none;
+                text-align: left;
+                transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+            }
+            #screen * {
+                font-family: UIp;
+            }
+            input:focus{
+                outline: none;
+                background-color: aliceblue;
+            }
+            [time]{
+                text-align: center;
+                font-size: 3.3vw;
+                filter: blur(3px);
+            }
+            [go]:hover{
+                background-color: white;
+            }
+            [app]{
+                width: 6.3vw;
+                height: 6.3vw;
+                background-color: grey;
+                border-radius: 0.63vw;
+                border-color: black;
+                border-right: 0.3vw;
+                border-style: solid;
+            }
+            [app] span{
+                position: relative;
+                bottom: -6.13vw;
+            }
+            #ex{
+                font-size: large;
+                width:20%;
+                height: 80%;
+                bottom: -45.3vw;
+            }
+        </style>
+        <script>
+            var checkOnLock = false;
+            function optionGSP(){
+
+            }
+            function gStp(){
+                document.querySelector("[phone]").style.display = "none";
+                document.querySelector("#has_phone").style.display = "block";
+                document.getElementById("phone_status").innerHTML = "SEAN HAS AND IS LOOKING THROUGH THE PHONE";
+            }
+            function dgStp(){
+                document.querySelector("[phone]").style.display = "none";
+                document.querySelector("#has_phone").style.display = "block";
+                document.getElementById("phone_status").innerHTML = `
+                <span style="color: red;">HE TOOK IT FROM YOU ANYWAYS</span>
+                <br>
+                SEAN HAS AND IS LOOKING THROUGH THE PHONE`;
+            }
+            function giveSPhone(){
+                document.querySelector("[giveS]").innerHTML = giveSPEX;
+                setTimeout(function(){
+                    phonePrompt = true;
+                },13)
+            }
+            var enable = () => {
+                document.querySelector("[block]").style.display = "block";
+            }
+            var disable = () => {
+                document.querySelector("[block]").style.display = "none";
+            }
+            window.addEventListener("load", function(){
+                changePage("lock");
+
+                setTimeout(function(){
+                    document.getElementById("ex").style.bottom = "0vw";
+                    document.getElementById("ex").innerHTML = `
+                    You remember the word we got for the last task, for his password, right? It was...
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    Porifera! The word for the last slide - it was porifera. Try putting that in the password box.`;
+                }, 300)
+            
+                /*setTimeout(function(){
+                    document.getElementById("ex").style.height = "23.3vw";
+                    document.getElementById("ex").style.bottom = "-26.3vw";
+                }, 9500)*/
+            })
+            var page = "lock";
+            var notOnApp = true;
+            var appsViewed = [];
+            function edGO(){
+                console.log(document.querySelector("[pass]").value)
+                if(document.querySelector("[pass]").value=="PORIFERA"){
+                    console.log("work")
+                    changePage("fhome")
+                    setTimeout(function(){
+                        document.querySelector("[pass]").value = "";
+                    }, 13)
+                } else {
+                    document.querySelector("[pass]").value = "";
+                    document.querySelector("[pass]").style.backgroundColor = "red";
+                    setTimeout(function(){
+                        document.querySelector("[pass]").style.backgroundColor = "rgb(211, 211, 211)";
+                    },533)
+                    setTimeout(function(){
+                    document.getElementById("ex").style.bottom = "0vw";
+                    document.getElementById("ex").innerHTML = `
+                    Maybe you spelled it wrong. Or maybe you could try a different case (all uppercase, lowercase, etc.). All I know is that when we got the word (PORIFERA), it was in all uppercase.`;
+                    }, 500)
+                    
+                }
+            }
+
+            window.addEventListener("load", function(){
+                setInterval(function(){
+                    if(page=="lock"){
+                        if(document.querySelector("[pass]").value==""){
+                            document.querySelector("[go]").style.display = "none";
+                        } else {
+                            document.querySelector("[go]").style.display = "block";
+                        }
+                    }
+                })
+            })
+            
+            setInterval(function(){
+                if(page=="lock"){
+                    document.querySelector("[phone]").style.backgroundImage = `url(https://farm4.staticflickr.com/3169/2981528249_7158e82fd8_o_d.jpg)`;
+                    document.querySelector("[homeButton]").style.display = "none";
+                } else if (page=="notes"){
+                    document.querySelector("[phone]").style.backgroundImage = `none`;
+                    document.querySelector("[phone]").style.backgroundColor = `rgb(185, 184, 171)`;
+                } else if (page=="home"){
+                    document.querySelector("[homeButton]").style.display = "block";
+                    document.querySelector("[phone]").style.backgroundImage = `url(https://farm4.staticflickr.com/3169/2981528249_7158e82fd8_o_d.jpg)`;
+                } else if (page=="sHome"){
+                    document.querySelector("[phone]").style.backgroundImage = `none`;
+                    document.querySelector("[phone]").style.backgroundColor = `darkblue`;
+                }
+                else if (page=="gTracker"){
+                    document.querySelector("[phone]").style.backgroundImage = `none`;
+                    document.querySelector("[phone]").style.backgroundColor = `lightgreen`;
+                }
+            })
+            function outOS(){
+
+            }
+            var sugCBA = true;
+            function changePage(p, l){
+                if(p=="lock"){
+                    page = "lock";
+                    sugCBA = true;
+                    notOnApp = true;
+                    document.querySelector("#screen").innerHTML = pageR.lock;
+                } 
+                //
+                else if (p=="fhome"){
+                    
+                        
+                    
+                    page = "home";
+                    notOnApp = true;
+                    document.querySelector("#screen").innerHTML = pageR.home;
+                    if(sugCBA){
+                        if(notOnApp)
+                        setTimeout(function(){
+                        setTimeout(function(){
+                            sugCBA = false;
+                        }, 1000)
+                        
+                document.getElementById("ex").style.bottom = "0vw";
+                enable()
+                document.getElementById("ex").innerHTML = `
+                Good. Wait why are all the apps black? Maybe you should try clicking on them and see if they work.`
+            }, 13)
+            setTimeout(function(){
+                document.getElementById("ex").style.bottom = "0vw";
+                enable()
+                setTimeout(function(){
+                disable()
+            },6000)
+                document.getElementById("ex").innerHTML = `
+                Maybe the killer did something Declan's phone to cover something up. Well, look at all the apps that do work and see if we can find any information. Don't stop until you have looked at EVERYTHING. We might need some of the information we can find on this phone soon. And by everything I mean every single app.`
+            }, 5500)
+                    }
+
+
+
+                    
+                
+                    
+
+
+                } 
+                //
+                else if (p=="notes"){
+                    sugCBA = false;
+                    notOnApp = false;
+                    page = "notes";
+                    appsViewed.push("notes");
+                    document.querySelector("#screen").innerHTML = pageR.notes;
+                    document.getElementById("ex").style.bottom = "0vw"
+                document.getElementById("ex").innerHTML = `
+                See what is written in both of the notes. Click on the notes -  <b>NOW</b>.`
+                } else if (p=="sHome"){
+                    sugCBA = false;
+                    notOnApp=false;
+                    page = "sHome";
+                    appsViewed.push("sHome");
+                    document.querySelector("#screen").innerHTML = pageR.sHome;
+                    document.getElementById("ex").style.bottom = "0vw"
+                document.getElementById("ex").innerHTML = `
+                Nothing to see here.`
+                
+                }
+                else if (p=="gTracker"){
+                    sugCBA = false;
+                    notOnApp=false;
+                    page = "gTracker";
+                    appsViewed.push("gTracker");
+                    document.querySelector("#screen").innerHTML = pageR.gTracker;
+                    document.getElementById("ex").style.bottom = "0vw"
+                document.getElementById("ex").innerHTML = `
+                Nothing to see here, it's only his grades.`;
+                }
+            }giveSPEX
+            var phonePrompt = false;
+            setInterval(function(){
+                console.log(page)
+            })
+            setInterval(function(){
+                if(phonePrompt==false){
+                    if(appsViewed.includes("notes") && appsViewed.includes("sHome") && appsViewed.includes("gTracker")){
+                        setTimeout(function(){
+                            
+                            //document.querySelector("#screen").innerHTML = pageR.gTracker;
+                            document.getElementById("ex").style.bottom = "0vw";
+                            document.getElementById("ex").style.height = "23.3vw";
+                            document.getElementById("ex").style.width = "100%";
+                            document.getElementById("ex").style.backgroundColor = "rgba(93, 93, 93, 0.43)";
+                            document.getElementById("ex").style.color = "white";
+                            document.getElementById("ex").innerHTML = `
+                            Okay, you've looked at all the apps, so can you give me the phone so I can look through the phone too?`;
+                            giveSPhone()
+                            
+                        }, 6000)
+                    }
+                }
+                
+                
+                
+            })
+            //function giveSPhone(){
+            //    if(phonePrompt==false){
+            //        document.querySelector("[giveS]").innerHTML = giveSPEX;
+            //    }
+            //}
+            
+        </script>
+    </body>
+</html>

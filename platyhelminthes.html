@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Platyhelminthes</title>
+        <link href="main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="ex"></div>
+        <h1 corr>CORRECT!</h1>
+        <div mid>
+            <br>
+            <div rid>
+                Pretent this is a riddle for now.
+            </div>
+            <div optrlist>
+                <div optionr ans1 onclick="conf('1',0)">platyhel<br>-minthes</div>
+                <div optionr ans2 onclick="conf('1',0)">uris</div>
+                <div optionr ans3 onclick="conf('3',0)">platy</div>
+                <div optionr ans4 onclick="conf('4',0)">fornus</div>
+                <div optionr ans4 onclick="conf('5',0)">ocularis</div>
+                <div optionr ans4 onclick="conf('6',0)">antonius</div>
+            </div>
+        </div>
+        <div top>
+            _____&#x2022;__________
+        </div>
+        <style>
+            [mid]{
+                width: 100%;
+                height: 29vw;
+                background-color: grey;
+                position: fixed;
+                left: 0;
+                top:30%;
+                border-bottom-style: solid;
+                border-bottom-width: 0.3vw;
+                border-color: black;
+                border-top-style: solid;
+                border-top-width: 0.3vw;
+                border-color: black;
+                font-size: 4.3vw;
+                text-align: center;
+            }
+            [top]{
+                width: 100%;
+                height: 12.3vw;
+                background-color: grey;
+                position: fixed;
+                left: 0;
+                top:0;
+                border-bottom-style: solid;
+                border-bottom-width: 0.3vw;
+                border-color: black;
+                border-top-style: solid;
+                border-top-width: 0.3vw;
+                border-color: black;
+                font-size: 7.3vw;
+                text-align: center;
+            }
+            [optionr]{
+                width: 9.3vw;
+                height: 9.3vw;
+                background-color: grey;
+                border-style: solid;
+                border-width: 0.3vw;
+                border-color: black;
+                margin: 1.3vw;
+                transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.13s;
+                font-size: 1.3vw;
+                font-weight: 100;
+            }
+            [optionr]:hover{
+                background-color: rgb(209, 209, 209);
+                font-weight: 900;
+            }
+            [optrlist]{
+                display: grid;
+                justify-content: center;
+                grid-template-columns: auto auto auto auto auto auto;
+            }
+            [corr]{
+                position: fixed;
+                font-size: 16vw;
+                z-index: 13;
+                color: yellow;
+                display:none;
+            }
+            @keyframes correct {
+                0%{color: yellow;}
+                50%{color: orange;}
+                100%{olor: orangered;}
+            }
+            @keyframes incorrect {
+                0%{color: rgb(255, 0, 0);}
+                50%{color: rgb(163, 0, 0);}
+                100%{olor: rgb(31, 0, 0);}
+            }
+            #ex{
+                font-size: 2.3vw;
+                height: 29.3vw;
+            }
+        </style>
+        <script>
+            var riddle_number = 0;
+            var riddles = [
+                {
+                    riddle: "I am a part of a phyla, and my first name means \"flat\".",
+                    answer: "3"
+                },
+                {
+                    riddle: "I am a part of a phyla, and the second part of my name has something to do with an organism that has a long segmented body.",
+                    answer: "5"
+                }
+            ]
+            var riddleA2 = [
+                `<div optionr ans2 onclick="conf('1',1)">dolus</div>`,
+                `<div optionr ans2 onclick="conf('2',1)">excetra</div>`,
+                `<div optionr ans2 onclick="conf('3',1)">serpens</div>`,
+                `<div optionr ans2 onclick="conf('4',1)">vermis</div>`,
+                `<div optionr ans2 onclick="conf('5',1)">helminthes</div>`,
+                `<div optionr ans2 onclick="conf('6',1)">rustica</div>`
+            ]
+            var compWord = [
+                'PLATY&#x2022;HELMINTHES',
+                'PLATYH&#x2022;ELMINTHES',
+                'PLATYHE&#x2022;LMINTHES',
+                'PLATYHEL&#x2022;MINTHES',
+                'PLATYHELM&#x2022;INTHES',
+                'PLATYHELMI&#x2022;NTHES',
+                'PLATYHELMIN&#x2022;THES',
+                'PLATYHELMINT&#x2022;HES',
+                'PLATYHELMINTHE&#x2022;S',
+                'PLATYHELMINTHES&#x2022;',
+                "PLATYHELMINTHES"
+            ]
+            
+            window.addEventListener("load", function(){
+                document.querySelector("[rid]").innerHTML = riddles[0].riddle;
+            })
+            function conf(anumb, rnumb){
+                if(anumb==riddles[rnumb].answer){
+                    if(rnumb==0){
+                        document.querySelector("[top]").innerHTML = " PLATY&#x2022;__________";
+                        document.querySelector("[top]").style.backgroundColor = "yellow";
+                        document.querySelector("[corr]").style.display = "block";
+                        document.querySelector("[corr]").style.animationName = "correct";
+                        document.querySelector("[corr]").style.animationDuration = "2s";
+                        document.querySelector("[corr]").innerHTML = "CORRECT!";
+                        document.querySelector("[corr]").style.fontSize = "16vw";
+                        setTimeout(function(){
+                            document.querySelector("[top]").style.backgroundColor = "grey";
+                            setTimeout(function(){
+                                document.querySelector("[top]").style.backgroundColor = "yellow";
+                                setTimeout(function(){
+                                    document.querySelector("[top]").style.backgroundColor = "grey";
+                                },500)
+                            }, 500)
+                        }, 500)
+                        setTimeout(function(){
+                            document.querySelector("[corr]").style.display = "none";
+                        }, 2000)
+                        //
+                        riddle_number = 0;
+                        document.querySelector("[rid]").innerHTML = riddles[1].riddle;
+                        document.querySelector("[mid]").style.fontSize = "2.3vw";
+                        document.querySelector("[optrlist]").innerHTML="";
+                        //
+                        for(var i = 0; i<riddleA2.length; i++){
+                            applyAns2(i)
+                        }
+                        //
+                    }
+                    if(rnumb==1){
+                        var removeBullet = 0;
+                        document.querySelector("[top]").innerHTML = " PLATY&#x2022;__________";
+                        document.querySelector("[top]").style.backgroundColor = "yellow";
+                        document.querySelector("[corr]").style.display = "block";
+                        document.querySelector("[corr]").style.animationName = "correct";
+                        document.querySelector("[corr]").style.animationDuration = "2s";
+                        document.querySelector("[corr]").innerHTML = "CORRECT!";
+                        document.querySelector("[corr]").style.fontSize = "16vw";
+                        setTimeout(function(){
+                            document.querySelector("[top]").style.backgroundColor = "grey";
+                            setTimeout(function(){
+                                document.querySelector("[top]").style.backgroundColor = "yellow";
+                                setTimeout(function(){
+                                    document.querySelector("[top]").style.backgroundColor = "grey";
+                                },500)
+                            }, 500)
+                        }, 500)
+                        setTimeout(function(){
+                            document.querySelector("[corr]").style.display = "none";
+                        }, 2000)
+                        //
+                        riddle_number = 0;
+                        document.querySelector("[rid]").innerHTML = riddles[1].riddle;
+                        document.querySelector("[mid]").style.fontSize = "2.3vw";
+                        document.querySelector("[optrlist]").innerHTML="";
+                        //
+                        for(var i = 0; i<riddleA2.length; i++){
+                            applyAns2(i)
+                        }
+                        //
+                        setInterval(function(){
+                            if(removeBullet<11){
+                                document.querySelector("[top]").innerHTML = compWord[removeBullet];
+                                removeBullet++
+                            }
+                        },100)
+                        setTimeout(function(){
+                            document.getElementById("ex").style.bottom = "0vw";
+                            document.getElementById("ex").innerHTML = "<span>Finally, we're done. That was quick. <button opt onclick='change(\"NO-I-DONE\")'>No, you mean <i>I'M</i> done. I did all the riddles</button><button opt onclick='change(\"YES-FIN-DONE\")'>Yes</button></span>";
+                        }, 1100)
+                    }
+                } else if(anumb!=riddles[rnumb].answer){
+                    document.querySelector("[corr]").innerHTML = "INCORRECT!";
+                    document.querySelector("[corr]").style.fontSize = "12.7vw";
+                    document.querySelector("[corr]").style.display = "block";
+                    document.querySelector("[corr]").style.animationName = "incorrect";
+                    document.querySelector("[corr]").style.animationDuration = "2s";
+                    var sound = new Audio("click.mp3");
+                    sound.play()
+                    setTimeout(function(){
+                            document.querySelector("[corr]").style.display = "none";
+                    }, 2000)
+                }
+                //
+            }
+            function applyAns2(index){
+                document.querySelector("[optrlist]").innerHTML+=riddleA2[index];
+            }
+            function change(type) {
+                if (type=="NO-I-DONE"){
+                    document.getElementById("ex").innerHTML = "<span>Well, yeah, but anyways, are you ready to move to the next slide? <button opt onclick='change(\"YES-NEXT-SLIDE\")'>Yes</button><button opt onclick='change(\"NO-NEXT-SLIDE\")'>NO</button></span>";
+                } else if (type=="NO-NEXT-SLIDE"){
+                    document.getElementById("ex").innerHTML = `<span>Then that's unforntunate ${localStorage.getItem("pname")} because we're going there anyways.</span>`;
+                } else if (type=="YES-NEXT-SLIDE"){
+                    document.getElementById("ex").innerHTML = `<span>Okay.</span>`;
+                    
+                } else if (type=="YES-FIN-DONE"){
+                    document.getElementById("ex").innerHTML = `<span>Are you ready to move to the next slide? <button opt onclick='change(\"YES-NEXT-SLIDE\")'>Yes</button><button opt onclick='change(\"NO-NEXT-SLIDE\")'>NO</button></span></span>`;
+                }
+            }
+        </script>
+    </body>
+</html>

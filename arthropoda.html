@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arthropoda</title>
+        <link href="main.css" rel="stylesheet">
+    </head>
+    <div id="ex"></div>
+    <body>
+        <div blockEver></div>
+        <br>
+        <div this></div>
+        <div bPart>
+            <br>
+            <div word>
+                <div letter l1>_</div>
+                <div letter l2>_</div>
+                <div letter l3>_</div>
+                <div letter l4>_</div>
+                <div letter l5>_</div>
+                <div letter l6>_</div>
+                <div letter l7>_</div>
+                <div letter l8>_</div>
+                <div letter l9>_</div>
+                <h1 style="position:fixed; bottom: 3.3vw;">Clue: It's the name of a phyla.</h1>
+            </div>
+        </div>
+        <style>
+            [bPart]{
+                background-color: grey;
+                width: 100%;
+                height: 23.3vw;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                border-top-color: black;
+                border-top-width: 0.63vw;
+                border-top-style: solid;
+            }
+            [word]{
+                display: grid;
+                grid-template-columns: auto auto auto auto auto auto auto auto auto;
+                justify-items: center;
+                align-items: center;
+            }
+            [letter], [rletter]{
+                background-color: grey;
+                width: 5.3vw;
+                height: 5.3vw;
+                border-color: black;
+                border-width: 0.33vw;
+                border-style: solid;
+                text-align: center;
+                vertical-align: middle;
+                font-size: xx-large;
+                padding: 1.3vw;
+                box-shadow: 1.3vw 1.3vw 3.3vw 0.3vw black;
+            }
+            [rletter]{
+                margin: 1.3vw;
+            }
+            [letter]:hover, [rletter]:hover{
+                background-color: lightgray;
+                box-shadow: 1.3vw 1.3vw 3.3vw 0.3vw rgb(255, 255, 255);
+            }
+            [this]{
+                display: grid;
+                grid-template-columns: auto auto auto auto;
+                height: 45%;
+                justify-items: center;
+            }
+            [blockEver]{
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background-color: rgba(0, 0, 0, 0.384);
+                z-index: 4;
+                display: block;
+            }
+            #ex{
+                z-index: 5;
+                height: 30.3vw;
+                font-size: 2.3vw;
+            }
+        </style>
+        <script>
+            var positionInComp = 0;
+            var alterVar = "pos";
+            var clickCount = 0;
+            var posI = [
+                ["A"],
+                ["R"],
+                ["T"],
+                ["H"],
+                ["R"],
+                ["O"],
+                ["P"],
+                ["O"],
+                ["D"]
+            ]
+            var pos = [
+                ["R"],
+                ["A"],
+                ["D"],
+                ["H"],
+                ["E"],
+                ["P"],
+                ["0"],
+                ["O"],
+                ["T"],
+                ["Z"],
+                ["R"],
+                ["S"]
+            ]
+            var posOR = [
+                ["P"],
+                ["D"],
+                ["A"],
+                ["E"],
+                ["H"],
+                ["R"],
+                ["O"],
+                ["0"],
+                ["Z"],
+                ["T"],
+                ["S"],
+                ["R"]
+            ]
+            window.addEventListener("load", function(){
+                for (let index = 0; index < pos.length; index++) {
+                    var newLetter = document.createElement("div")
+                    newLetter.setAttribute("rletter", index)
+                    newLetter.addEventListener("click", function(){
+                        rev(index)
+                    })
+                    document.querySelector('[this]').appendChild(newLetter)
+                }
+                pos.forEach(set)
+                function set(item, index){
+                    document.querySelector(`[rletter="${index.toString()}"]`).style.marginLeft = Math.floor(Math.random()*13.3) + 0.13 + "vw";
+                    var size = Math.floor(Math.random()*4.3) + 3.13 + "vw";
+
+                    document.querySelector(`[rletter="${index.toString()}"]`).style.width = size;
+                    document.querySelector(`[rletter="${index.toString()}"]`).style.height = size;
+                }
+            })
+            function rev(elem){
+                clickCount++
+                document.querySelector(`[rletter="${parseInt(elem.toString())}"]`).innerHTML = eval(alterVar)[parseInt(elem)][0];
+                if(eval(alterVar)[parseInt(elem)][0]==posI[positionInComp][0]){
+                    document.querySelector(`[l${positionInComp+1}]`).innerHTML = posI[positionInComp];
+                    positionInComp++
+                    document.querySelector(`[l${positionInComp}]`).style.backgroundColor = "yellow";
+                    setTimeout(function(){
+                        document.querySelector(`[l${positionInComp}]`).style.backgroundColor = "grey";
+                    }, 1000)
+                }
+                eval(alterVar).forEach(set)
+                function set(item, index){
+                    document.querySelector(`[rletter="${index.toString()}"]`).style.marginLeft = Math.floor(Math.random()*13.3) + 0.13 + "vw";
+                    var size = Math.floor(Math.random()*4.3) + 3.13 + "vw";
+                    setTimeout(function(){
+                        document.querySelector(`[rletter="${index.toString()}"]`).innerHTML = "";
+                        document.querySelector(`[rletter="${index.toString()}"]`).style.width = size;
+                        document.querySelector(`[rletter="${index.toString()}"]`).style.height = size;
+                    }, 1000)
+
+                }
+                setTimeout(function(){
+                    if(alterVar=="pos"){
+                        alterVar = "posOR";
+                    } else {
+                        alterVar = "pos";
+                    }
+                }, 200)
+                console.log(alterVar)
+                console.log(clickCount)
+                if (clickCount==5) {
+                    document.getElementById("ex").style.bottom = "0vw";
+                document.getElementById("ex").innerHTML = "<span>Should I try clicking some of them or...<button opt onclick='changeEx(\"OKAY-CLICK-LETTER\")'>Okay</button><button opt onclick='changeEx(\"NO-CLICK\")'>No</button></span>";
+                }
+                console.log(positionInComp + "this")
+                if(positionInComp==9){
+                    document.getElementById("ex").style.bottom = "0vw";
+                    document.getElementById("ex").style.backgroundColor = "rgba(167, 167, 167, 0.76)";
+                    document.getElementById("ex").innerHTML = "<span>We're finally done. I guess Declan really liked Science to have his password be \"Arthropod\".</span>";
+                    setTimeout(function(){
+                        document.getElementById("ex").innerHTML = "<span>Now we need to move onto the next part.</span>";
+                    }, 4000)
+                    setTimeout(function(){
+                        window.location.href = "inpersonaftarthropoda.html";
+                    }, 6000)
+                }
+            }
+            window.addEventListener("load", function(){
+                document.getElementById("ex").style.bottom = "0vw";
+                document.getElementById("ex").innerHTML = "<span>" + localStorage.getItem("pname") + ", so for this, it looks like you need to click the boxes to reveal a letter. We're apparently trying to uncover a secret word. But it has to be spelled in order. So, for example, if you get the 2nd letter, but you haven't got the 1st one yet, it won't count. <button opt onclick='changeEx(\"OKAY-CLICK\")'>Okay</button></span>";
+            })
+            function changeEx(thisType){
+                if(thisType=="OKAY-CLICK"){
+                    document.getElementById("ex").style.bottom = "-40.3vw";
+                    document.querySelector("[blockEver]").style.display = "none";
+                    console.log("Test.")
+                    setTimeout(function(){
+                        
+                    }, 1000)
+                } else if (thisType=="NO-CLICK"){
+                    document.getElementById("ex").innerHTML = "<span>Are you sure, it might take a while at the rate you're going. <button opt onclick='changeEx(\"OKAY-CLICK-LETTER\")'>Fine</button><button opt onclick='changeEx(\"OKAY-CLICK\")'>I said no!</button></span>"
+                } else if (thisType=="OKAY-CLICK-LETTER") {
+                    document.getElementById("ex").style.bottom = "-40.3vw";
+                    document.querySelector("[blockEver]").style.display = "none";
+                    console.log("Test.")
+                    var posICB = positionInComp;
+                    document.querySelector("[blockEver]").style.display = "block";
+                    document.querySelector("[blockEver]").style.backgroundColor = "transparent";
+                    setTimeout(function(){
+                        rev(Math.floor(Math.random() * 12)+1);
+                    }, 1000)
+                    setTimeout(function(){
+                        rev(Math.floor(Math.random() * 10)+1);
+                    }, 3000)
+                    setTimeout(function(){
+                        rev(Math.floor(Math.random() * 10)+1);
+                    }, 5500)
+                    setTimeout(function(){
+                        rev(Math.floor(Math.random() * 10)+1);
+                    }, 7700)
+                    setTimeout(function(){
+                        rev(Math.floor(Math.random() * 10)+1);
+                    }, 9000)
+                    setTimeout(function(){
+                        rev(Math.floor(Math.random() * 10)+1);
+                    }, 11000)
+                    setTimeout(function(){
+                        if(posICB==positionInComp){
+                            document.getElementById("ex").style.bottom = "0vw";
+                            document.getElementById("ex").innerHTML = "<span>Okay I'm done.</span>";
+                        } else {
+                            document.getElementById("ex").style.bottom = "0vw";
+                            document.getElementById("ex").innerHTML = "<span>I got "+ (positionInComp-posICB) + ". I'm done now though.</span>";
+                        }
+                        setTimeout(function(){
+                            document.getElementById("ex").style.bottom = "-40.3vw";
+                        }, 1500)
+                        document.querySelector("[blockEver]").style.display = "none";
+                    }, 12000)
+                }
+            }
+            function resQuest(type){
+                if (type=="OKAY-CLICK"){
+                    
+                }
+            }
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="main.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1 corr>CORRECT</h1>
+        <div id="ex">
+            Okay, so we know that Takira found the body. Should we see what is next? <button opt onclick="take('NO-SEE')">No</button>
+            <button opt onclick="take('YES-SEE')">Yes</button>
+        </div>
+        <div id="wfb">
+            <div id="instruct">
+                Remove a letter from each pair of words to find who found the body. Once you click a pair of letters, one of them will turn white. The black letter in the pair is the letter you have removed. If you want to select/remove the other letter in the pair, click on it again. Only one line has the name of the person who found the body. Once you think you have found the name, click on the letter (A, B, C, or D) on the left of the line to select it. Then press the <button opt style="background-color: greenyellow;">Check</button> button below to check your answer.
+            </div>
+            <br>
+            <span opA onclick="activate('A')">A</span>. <button optl>P-S</button>, <button optl>P-E</button>, <button optl>M-O</button>, <button optl>L-I</button>
+            <br>
+            <span opB onclick="activate('B')">B</span>. <button optl rt>R-T</button>, <button optl ao>A-O</button>, <button optl ko>K-O</button>, <button optl ni>N-I</button>, <button optl er>E-R</button>, <button optl ay>A-Y</button>
+            <br>
+            <span opC onclick="activate('C')">C</span>. <button optl>E-A</button>, <button optl>K-S</button>, <button optl>O-Z</button>, <button optl>X-R</button>
+            <br>
+            <span opD onclick="activate('D')">D</span>. <button optl>C-W</button>, <button optl>M-I</button>, <button optl>U-H</button>, <button optl>D-A</button>, <button optl>F-Y</button>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div style="display: grid; grid-template-columns: auto; justify-content: center;">
+                <button opt style="background-color: greenyellow;" onclick="check()">Check</button>
+            </div>
+        </div>
+        <style>
+            #wfb{
+                background-color: grey;
+                width: 100%;
+                height: 90%;
+                position: fixed;
+                left: 0;
+                top: 5%;
+                border-color: black;
+                border-width: 0.63vw;
+                border-top-style: solid;
+                border-bottom-style: solid;
+                text-align: justify;
+                font-size: 3.3vw;
+            }
+            #instruct{
+                background-color: rgb(102, 102, 102);
+                width:100%;
+                height: 18.3%;
+                position: relative;
+                font-size: large;
+                border-bottom-style: solid;
+                border-bottom-width: 0.3vw;
+                border-bottom-color: black;
+            }
+            #instruct [opt]{
+                font-size: large; height: auto;
+            }
+            @keyframes correct {
+                0%{color: yellow;}
+                50%{color: orange;}
+                100%{olor: orangered;}
+            }
+            @keyframes incorrect {
+                0%{color: rgb(255, 0, 0);}
+                50%{color: rgb(163, 0, 0);}
+                100%{olor: rgb(31, 0, 0);}
+            }
+            [corr]{
+                position: fixed;
+                font-size: 16vw;
+                z-index: 13;
+                color: yellow;
+                display:none;
+            }
+        </style>
+        <script>
+            var activated;
+            var select1 = new Audio("sound/blipSelect.wav");
+            var select2 = new Audio("sound/sel2.wav");
+            var select3 = new Audio("sound/this.wav");
+            window.addEventListener("load", function(){
+                document.querySelectorAll("[optl]").forEach(function(element){
+                    element.setAttribute("col", "black")
+                    element.setAttribute("rv", element.innerHTML)
+            })
+        })
+        
+            document.querySelectorAll("[optl]").forEach(function(element){
+                element.addEventListener("click", function(){
+                    if(element.getAttribute("col")=="black"){
+                        element.innerHTML = "<span style='color: white;'>" + element.getAttribute("rv").split("-")[0] + "</span>-" + element.getAttribute("rv").split("-")[1]
+                        element.setAttribute("col", "white");
+
+                    } else if (element.getAttribute("col")=="white"){
+                        element.innerHTML =  "<span style='color: black;'>" + element.getAttribute("rv").split("-")[0] + "</span>" + "-" + "<span style='color: white;'>" + element.getAttribute("rv").split("-")[1] + "</span>"
+                        element.setAttribute("col", "black")
+                    }
+                    select2.play()
+                })
+            })
+            function activate(op){
+                if(op=="A") {
+                    document.querySelector(`[op${op}]`).style.color = "lightgreen";
+                    document.querySelector(`[opB]`).style.color = "black";
+                    document.querySelector(`[opC]`).style.color = "black";
+                    document.querySelector(`[opD]`).style.color = "black";
+                    activated = "A";
+                } else if (op=="B") {
+                    document.querySelector(`[opA]`).style.color = "black";
+                    document.querySelector(`[op${op}]`).style.color = "lightgreen";
+                    document.querySelector(`[opC]`).style.color = "black";
+                    document.querySelector(`[opD]`).style.color = "black";
+                    activated = "B";
+                } else if (op=="C") {
+                    document.querySelector(`[opA]`).style.color = "black";
+                    document.querySelector(`[opB]`).style.color = "black";
+                    document.querySelector(`[op${op}]`).style.color = "lightgreen";
+                    document.querySelector(`[opD]`).style.color = "black";
+                    activated = "C";
+                } else if (op=="D") {
+                    document.querySelector(`[opA]`).style.color = "black";
+                    document.querySelector(`[opB]`).style.color = "black";
+                    document.querySelector(`[opC]`).style.color = "black";
+                    document.querySelector(`[op${op}]`).style.color = "lightgreen";
+                    activated = "D";
+                }
+                new Audio("sound/blipSelect.wav").play()
+            }
+            function check(){
+                
+                var rt = document.querySelector("[rt]").getAttribute("col");
+                var ao = document.querySelector("[ao]").getAttribute("col");
+                var ko = document.querySelector("[ko]").getAttribute("col");
+                var ni = document.querySelector("[ni]").getAttribute("col");
+                var er = document.querySelector("[er]").getAttribute("col");
+                var ay = document.querySelector("[ay]").getAttribute("col");
+                if(rt == "black" && ao == "white" && ko == "white" && ni == "black" && er == "black" && ay == "white" && activated == "B"){
+                    document.querySelector("[corr]").style.display = "block";
+                    document.querySelector("[corr]").style.animationName = "correct";
+                    document.querySelector("[corr]").style.animationDuration = "2s";
+                    document.querySelector("[corr]").innerHTML = "CORRECT!";
+                    document.querySelector("[corr]").style.fontSize = "16vw";
+                    document.querySelector("#ex").style.bottom = "0vw";
+                    setTimeout(function(){
+                            document.querySelector("[corr]").style.display = "none";
+                    }, 2000)
+                    select3.play()
+                    setTimeout(function(){
+                        select3.play()
+                    }, 250)
+                } else {
+                    document.querySelector("[corr]").innerHTML = "INCORRECT!";
+                    document.querySelector("[corr]").style.fontSize = "12.7vw";
+                    document.querySelector("[corr]").style.display = "block";
+                    document.querySelector("[corr]").style.animationName = "incorrect";
+                    document.querySelector("[corr]").style.animationDuration = "2s";
+                    setTimeout(function(){
+                            document.querySelector("[corr]").style.display = "none";
+                    }, 2000)
+                }
+            }
+            function take(type){
+                if(type=="NO-SEE"){
+                    document.getElementById("ex").innerHTML = "Why not? You know what, I'm done with what you say, we are going to see the next part.";
+                    setTimeout(function(){
+                        //window.location.href
+                    }, 4500)
+                } else if (type=="YES-SEE"){
+                    document.getElementById("ex").innerHTML = "Okay.";
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+[app=notes]{
+    background-color: rgb(133, 182, 0) !important;
+    text-align: center;
+    vertical-align: middle;
+    background-image: url(https://www.pinclipart.com/picdir/big/450-4505950_black-and-white-pencil-clip-art-png-download.png);
+    background-size: 90% 90%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+[app=SmartHome]{
+    background-color: rgb(0, 204, 187) !important;
+    text-align: center;
+    vertical-align: middle;
+    background-image: url(https://th.bing.com/th/id/R.fe56aacc1e7b3ec21bbf97b1de647197?rik=LXTcms7Z9k6quQ&riu=http%3a%2f%2fimages.clipartpanda.com%2flight-bulb-clip-art-png-light-bulb8.png&ehk=qoTAwv9RAZF5imySFL52GH8DIdKAb%2bDRM3w4aYHTQwQ%3d&risl=&pid=ImgRaw&r=0);
+    background-size: auto 90%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+[outofservice]{
+    background-color: black !important;
+}
+
+[app=grades]{
+    background-color: rgb(0, 204, 187) !important;
+    text-align: center;
+    vertical-align: middle;
+    background-image: url(f-.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+[note]{
+    background-color: rgb(204, 200, 171);
+    width: 6.3vw;
+    height: 6.3vw;
+    border-radius: 1.3vw;
+    margin: 0.3vw;
+    border-width: 0.33vw;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+}
+[addNote]{
+    background-color: rgb(204, 200, 171);
+    width: 5.3vw;
+    height: 5.3vw;
+    border-radius: 4.3vw;
+    margin: 0.3vw;
+    border-width: 0.23vw;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    font-size: 3.93vw;
+    text-align: center;
+}
+
+[note] span {
+    position: relative;
+    bottom: -7.13vw;
+    text-align: center;
+}
+[note] span i{
+    position: relative;
+    text-align: center;
+}
